@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>5066 Singularity Scouting Spreadsheet</title>
+  <link rel="stylesheet" href="slick/slick.grid.css" type="text/css"/>
+</head>
+<body>
+
+<div id="navigation">
+	<select onChange="setVisibility(this)">
+		<option value="averageGrid">Averages</option>
+		<option value="matchGrid">Individual Matches</option>
+	</select>
+	<button id="filterButton" onclick="filter()">Filter</button>
+	<button id="allTeamsButton" onclick="allTeams()">All Teams</button>
+</div>
+
+<div id="myGrid" style="width:1165px;height:700px;"></div>
+
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script src="lib/jquery.event.drag.js"></script>
+<script src="lib/jquery-ui.js"></script>
+
+<script src="slick/slick.core.js"></script>
+<script src="slick/slick.grid.js"></script>
+<script src="slick/slick.formatters.js"></script>
+<link rel="stylesheet" href="slick/slick.theme.default.css" type="text/css"/>
+<link rel="stylesheet" href="cellFormat.css" type="text/css"/>
+
+<script src="averageGrid.js"></script>
+<script src="grid.js">
+</script>
+<script src="visibilityManager.js"></script>
+</body>
+</html>
