@@ -1,3 +1,4 @@
+
 from bluetooth import *
 import json
 
@@ -27,8 +28,8 @@ def doClient():
 		data = client_sock.recv(1024)
 		print("Data recieved.")
 		print(data)
-		str=open("/var/www/html/matchData.json","r").read()
-		matchDataFile=open("/var/www/html/matchData.json","w")
+		str=open("/home/pi/ScoutingSpreadsheet2019/matchData.json","r").read()
+		matchDataFile=open("/home/pi/ScoutingSpreadsheet2019/matchData.json","w")
 		dataJSON = json.loads(data.rstrip())
 		matchDataString=json.dumps(dataJSON["matchData"])[1:-1]
 		targetLength=len(matchDataString)
@@ -39,12 +40,12 @@ def doClient():
 		else:
 			matchDataFile.write(str)
 		matchDataFile.close()
-		teamDataFile = open("/var/www/html/teamData.json","a")
+		teamDataFile = open("/home/pi/ScoutingSpreadsheet2019/teamData.json","a")
 		teamDataString=","+json.dumps(dataJSON["teamData"])[1:-1]
 		if len(teamDataString)>1:
 			teamDataFile.write(teamDataString)
 		teamDataFile.close()
-		teamDataFile = open("/var/www/html/teamData.json","r")
+		teamDataFile = open("/home/pi/ScoutingSpreadsheet2019/teamData.json","r")
 		
 		client_sock.send(""+teamDataFile.read()+"]\n")
 		teamDataFile.close()
